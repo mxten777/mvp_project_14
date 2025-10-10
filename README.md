@@ -1,10 +1,29 @@
-# Vibe-RPA (시군구 RPA 통합플랫폼)
+# 🎉 Vibe-RPA 2.0 Premium
 
-![Vibe-RPA Logo](https://via.placeholder.com/150x50/3B82F6/FFFFFF?text=Vibe-RPA)
+> **시군구 RPA 통합플랫폼** - 2025년 최신 웹 표준 적용  
+> TailwindCSS 3.4.4 | Glass Morphism | Premium Fonts | React 19
 
-## 🎯 프로젝트 개요
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://mvp-project-14-9bmios8kd-dongyeol-jungs-projects.vercel.app)
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mxten777/mvp_project_14)
+[![React](https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black)](https://react.dev/)
+[![TailwindCSS](https://img.shields.io/badge/TailwindCSS-3.4.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 
-**Vibe-RPA**는 시군구의 반복·정형 업무를 자동화하여 행정 효율을 높이는 통합 RPA 플랫폼입니다.
+## � 프로젝트 개요
+
+**Vibe-RPA**는 시군구 공공기관을 위한 **차세대 RPA(Robotic Process Automation) 통합 관리 플랫폼**입니다. 2025년 최신 웹 기술을 적용하여 **직관적이고 현대적인 사용자 경험**을 제공합니다.
+
+### ✨ 주요 특징
+
+- 🎨 **Premium Design System**: Glass Morphism과 TailwindCSS 3.4.4 기반
+- 🔤 **최적화된 타이포그래피**: Pretendard Variable + Inter Variable 폰트
+- 📱 **완전 반응형**: 모바일부터 데스크톱까지 완벽 지원
+- ⚡ **최적화된 성능**: 313KB 번들 (gzip: 90KB)
+- 🧩 **모듈형 컴포넌트**: 재사용 가능한 UI 시스템
+- 🎯 **TypeScript**: 100% 타입 안전성
+
+## 🚀 라이브 데모
+
+**🌍 [Vibe-RPA Premium 체험하기](https://mvp-project-14-9bmios8kd-dongyeol-jungs-projects.vercel.app)**
 
 ### 🏢 대상 부서
 - 민원과
@@ -14,12 +33,35 @@
 - 환경과
 - 도시건설과
 
-### 🛠 기술 스택
-- **Frontend**: Vite + React + TypeScript + TailwindCSS
-- **Backend**: Firebase (Auth, Firestore, Functions)
-- **Deployment**: Vercel
-- **Icons**: Lucide React
-- **State Management**: React Query
+## 🛠 기술 스택
+
+### Frontend Core
+- **React 19** - 최신 리액트 프레임워크
+- **TypeScript 5.7** - 타입 안전성 보장
+- **Vite 7.0** - 초고속 개발 서버
+
+### Styling & Design
+- **TailwindCSS 3.4.4** - 최신 CSS 프레임워크
+  - Container Queries
+  - Dynamic Viewport Units
+  - Advanced Color System
+- **Glass Morphism** - 현대적 UI 효과
+- **Pretendard Variable** - 한국어 최적화 폰트
+- **Inter Variable** - 영문 가독성 폰트
+- **JetBrains Mono** - 코드/데이터 전용 폰트
+
+### State Management
+- **React Query** - 서버 상태 관리
+- **Custom Hooks** - 비즈니스 로직 분리
+
+### Backend & Deployment
+- **Firebase** - 인증, 데이터베이스, 함수
+- **Vercel** - 전역 CDN 배포
+- **GitHub Actions** - CI/CD 자동화
+
+### Icons & Assets
+- **Lucide React** - 최신 아이콘 라이브러리
+- **Heroicons** - 보조 아이콘
 
 ## ✨ 주요 기능
 
@@ -36,16 +78,82 @@
 - **권한 관리**: 부서별 접근 권한 관리
 - **실시간 모니터링**: 작업 상태 실시간 추적
 
+## 🏗 프로젝트 구조
+
+```
+src/
+├── components/          # 재사용 가능한 UI 컴포넌트
+│   ├── Header.tsx       # 네비게이션 헤더
+│   ├── Sidebar.tsx      # 사이드바 메뉴
+│   ├── Layout.tsx       # 메인 레이아웃
+│   ├── Modal.tsx        # 모달 다이얼로그
+│   ├── Toast.tsx        # 알림 토스트
+│   ├── Dropdown.tsx     # 드롭다운 메뉴
+│   └── LoadingSpinner.tsx # 로딩 스피너
+├── pages/               # 페이지 컴포넌트
+│   ├── Dashboard.tsx    # 대시보드
+│   ├── Tasks.tsx        # 작업 관리
+│   ├── Schedule.tsx     # 스케줄 관리
+│   ├── Reports.tsx      # 보고서
+│   └── Settings.tsx     # 설정
+├── hooks/               # 커스텀 훅
+│   ├── useAsync.ts      # 비동기 작업 관리
+│   ├── useToast.ts      # 토스트 알림 관리
+│   ├── useLocalStorage.ts # 로컬 스토리지 관리
+│   └── useRPATasks.ts   # RPA 작업 API 관리
+├── lib/                 # 라이브러리 설정
+│   └── firebase.ts      # Firebase 설정
+├── types/               # TypeScript 타입 정의
+│   └── index.ts         # 글로벌 타입
+└── contexts/            # React 컨텍스트
+    └── ThemeContext.tsx # 테마 관리
+```
+
 ## 🚀 시작하기
 
-### 설치
+### 필수 조건
+- Node.js 18.0.0 이상
+- npm 또는 yarn
+- Git
+
+### 설치 및 실행
+
+1. **저장소 클론**
+```bash
+git clone https://github.com/mxten777/mvp_project_14.git
+cd mvp_project_14
+```
+
+2. **의존성 설치**
 ```bash
 npm install
 ```
 
-### 개발 서버 실행
+3. **개발 서버 시작**
 ```bash
 npm run dev
+```
+
+4. **브라우저에서 확인**
+```
+http://localhost:5173
+```
+
+### 빌드 및 배포
+
+1. **프로덕션 빌드**
+```bash
+npm run build
+```
+
+2. **Vercel 배포**
+```bash
+vercel --prod
+```
+
+3. **미리보기**
+```bash
+npm run preview
 ```
 
 ### 빌드
