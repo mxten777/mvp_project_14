@@ -1,11 +1,14 @@
 import { Search, Bell, User, Moon, Sun, Sparkles } from 'lucide-react';
 import { useTheme } from '../contexts/ThemeContext.tsx';
+import { useRef } from 'react';
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
+  const mobileSearchButtonRef = useRef<HTMLButtonElement | null>(null);
 
   return (
-    <header className="glass border-b border-white/20 dark:border-gray-700/30 backdrop-blur-xl shadow-soft sticky top-0 z-50 transition-all duration-300 animate-slide-down">
+    <header className="glass border-b border-white/20 dark:border-gray-700/30 backdrop-blur-xl shadow-soft sticky top-0 z-50 transition-all duration-300">
       <div className="px-4 tablet:px-6 laptop:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Search - Hide on mobile, show from tablet up */}
@@ -15,10 +18,19 @@ export default function Header() {
                 <Search className="size-5 text-gray-400 dark:text-gray-500 group-focus-within:text-primary-500 transition-colors duration-200" />
               </div>
               <input
+                id="header-search-input"
+                ref={searchInputRef}
                 type="text"
                 placeholder="RPA 작업, 보고서 검색..."
-                className="input-premium pl-12 pr-4 font-display text-sm placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:placeholder:text-gray-400 dark:focus:placeholder:text-gray-500"
+                className="w-full pl-12 pr-4 py-2 font-display text-sm rounded-btn border border-neutral-300 bg-white text-neutral-900 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-50"
                 aria-label="검색"
+                onKeyDown={(e) => {
+                  if (e.key === 'Escape') {
+                    // close semantics: blur input and return focus to mobile search button if present
+                    (e.target as HTMLInputElement).blur();
+                    mobileSearchButtonRef.current?.focus();
+                  }
+                }}
               />
               <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
                 <kbd className="hidden laptop:inline-flex items-center rounded border border-gray-200 dark:border-gray-600 bg-gray-50 dark:bg-gray-700 px-2 py-1 text-xs font-mono text-gray-500 dark:text-gray-400">
@@ -31,9 +43,12 @@ export default function Header() {
           {/* Mobile search button */}
           <div className="tablet:hidden">
             <button
+              ref={mobileSearchButtonRef}
               type="button"
               className="p-3 rounded-xl text-gray-400 dark:text-gray-500 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-primary-50 dark:hover:bg-primary-950/50 transition-all duration-200 transform hover:scale-105 active:scale-95"
               aria-label="검색"
+              aria-controls="header-search-input"
+              aria-expanded="false"
             >
               <Search className="size-5" />
             </button>
@@ -54,7 +69,7 @@ export default function Header() {
               aria-label="알림"
             >
               <Bell className="size-5" />
-              <span className="absolute -top-1 -right-1 size-5 bg-error-500 text-white text-xs font-bold rounded-full flex items-center justify-center animate-pulse">
+              <span className="absolute -top-1 -right-1 size-5 bg-error-500 text-white text-xs font-bold rounded-full flex items-center justify-center">
                 3
               </span>
             </button>
@@ -83,7 +98,7 @@ export default function Header() {
                   <div className="size-10 bg-gradient-to-br from-primary-500 to-success-500 rounded-xl flex items-center justify-center shadow-medium group-hover:shadow-glow transition-all duration-300">
                     <User className="size-5 text-white" />
                   </div>
-                  <div className="absolute -bottom-1 -right-1 size-4 bg-success-500 rounded-full border-2 border-white dark:border-gray-800 animate-pulse"></div>
+                  <div className="absolute -bottom-1 -right-1 size-4 bg-success-500 rounded-full border-2 border-white dark:border-gray-800"></div>
                 </div>
                 <div className="hidden tablet:block text-left">
                   <p className="text-sm font-display font-semibold text-gray-900 dark:text-white">mxten777</p>
@@ -102,3 +117,4 @@ export default function Header() {
     </header>
   );
 }
+
